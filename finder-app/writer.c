@@ -4,15 +4,13 @@
 #include <string.h>
 
 int main(int argc, char *argv[]){
-    char *filename;
-    char *str;
-    
     openlog(NULL, 0, LOG_USER);
-    if (argc < 2){
+    if (argc < 3){
 	syslog(LOG_ERR, "This function should take 2 arguments. Invalid Number of arguments: %d", argc);
+	return 1;
     }else{
-	filename = (char*)argv[0];
-	str = (char*)argv[1];
+	const char *filename = argv[1];
+	const char *str = argv[2];
 	FILE * file = fopen(filename, "w");
 	if (file == NULL){
 	    fprintf(stderr, "Error opening File %s: ErrNo-Code(%d), ErrMsg(%s)", filename, errno, strerror(errno));
