@@ -1,2 +1,3 @@
 assignment-2-amrighabdalla-lang/finder-app$ make CROSS_COMPILE=aarch64-none-linux-gnu-
 cc -Wall -Wextra -Werror writer.c -o writer
+
